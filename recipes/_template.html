@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 範本：複製成 recipes/<slug>.html 後，把所有【】換成實際內容。區塊順序與 class 名稱不可更動。 -->
+  <title>【菜名】｜聖誕夜食譜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">聖誕夜食譜</a>
+      <a href="../index.html">回首頁</a>
+    </div>
+    <div class="lights"></div>
+  </header>
+
+  <main class="wrap">
+    <!-- 1. 菜名與一句話介紹（30 字以內）。ornament 內放一個最能代表這道菜的表情符號 -->
+    <section class="recipe-head">
+      <div class="ornament">【表情符號】</div>
+      <h1>【菜名】</h1>
+      <p>【一句話介紹】</p>
+      <!-- 有照片時才加下面兩行（規則見 CLAUDE.md「照片」）；沒有照片就整段刪除
+      <img class="photo" src="../assets/images/photos/【slug】.jpg" alt="【描述照片內容】">
+      <p class="credit">照片：<a href="【照片頁網址】" target="_blank" rel="noopener">【攝影者】／【網站】</a></p>
+      -->
+    </section>
+
+    <!-- 2. 資訊列 -->
+    <ul class="info">
+      <li><span>分類</span>【前菜／主菜／甜點／飲品】</li>
+      <li><span>難度</span><b class="stars">【★ 一到三顆】</b></li>
+      <li><span>準備時間</span>【幾分鐘】</li>
+      <li><span>烹調時間</span>【幾分鐘】</li>
+      <li><span>份量</span>【幾人份】</li>
+    </ul>
+
+    <!-- 3. 食材：一律公制，不寫「適量」。每項的 data-icon 放代表該食材的表情符號 -->
+    <section class="block ingredients">
+      <h2>食材</h2>
+      <ul>
+        <li data-icon="【🥕】">【食材】【數量與單位】</li>
+      </ul>
+    </section>
+
+    <!-- 4. 器具：新手可能沒有的要給替代方案 -->
+    <section class="block tools">
+      <h2>器具</h2>
+      <ul>
+        <li>【器具】</li>
+      </ul>
+    </section>
+
+    <!-- 5. 步驟：每步一件事，寫出火候、時間與完成的判斷標準。
+         data-icon：代表這個動作的表情符號（必填）。
+         data-timer：這一步需要等待或計時的秒數（選填，例如 3 分鐘寫 180）。 -->
+    <section class="block steps">
+      <h2>步驟</h2>
+      <ol>
+        <li data-icon="【🔪】">【不需計時的步驟】</li>
+        <li data-icon="【🍳】" data-timer="【180】">【需要計時的步驟】</li>
+      </ol>
+    </section>
+
+    <!-- 6. 新手容易失敗的地方：至少兩點 -->
+    <section class="block warn">
+      <h2>新手容易失敗的地方</h2>
+      <ul>
+        <li><b>【狀況】</b>【原因與補救方法】</li>
+        <li><b>【狀況】</b>【原因與補救方法】</li>
+      </ul>
+    </section>
+
+    <!-- 7. 可以提前準備的部分 -->
+    <section class="block tip">
+      <h2>可以提前準備的部分</h2>
+      <ul>
+        <li>【前一天能先做什麼】</li>
+      </ul>
+    </section>
+
+    <!-- 8. 來源 -->
+    <p class="source">
+      參考來源：<a href="【原始網址】" target="_blank" rel="noopener">【網站名稱】【作者】《【原食譜名】》</a><br>
+      <a class="back" href="../index.html">← 回到所有食譜</a>
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">聖誕夜食譜・給料理新手的節慶餐桌</div>
+  </footer>
+  <script src="../assets/recipe.js"></script>
+</body>
+</html>

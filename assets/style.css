@@ -1,0 +1,465 @@
+/* 全站唯一樣式表：聖誕夜主題。色票與字體請勿更改（見 CLAUDE.md 第二節）。 */
+:root {
+  --night: #0E1A33;      /* 夜空底色 */
+  --night-2: #1B2D57;    /* 夜空漸層、深色區塊 */
+  --snow: #F7F3EA;       /* 雪白：卡片底、夜空上的文字 */
+  --red: #C8382E;
+  --green: #2F7D58;
+  --gold: #F2C14E;       /* 燭光、星星、燈串 */
+  --ink: #23283A;        /* 卡片上的內文 */
+  --line: #E3DAC6;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--night); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--snow);
+  background: linear-gradient(180deg, var(--night) 0%, var(--night-2) 70%, #24396B 100%) fixed;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* 星空 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, #FFF4C9 50%, transparent 51%),
+    radial-gradient(1px 1px at 120px 90px, #FFFFFF 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 210px 160px, #FFF4C9 50%, transparent 51%),
+    radial-gradient(1px 1px at 280px 40px, #FFFFFF 50%, transparent 51%),
+    radial-gradient(1px 1px at 70px 220px, #FFFFFF 50%, transparent 51%);
+  background-size: 320px 260px;
+  opacity: 0.7;
+}
+
+/* 飄雪（尊重「減少動態效果」設定） */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -400px 0 0 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(3px 3px at 40px 60px, #FFFFFF 50%, transparent 51%),
+    radial-gradient(2px 2px at 160px 180px, #FFFFFF 50%, transparent 51%),
+    radial-gradient(4px 4px at 260px 300px, rgba(255,255,255,.8) 50%, transparent 51%),
+    radial-gradient(2px 2px at 340px 120px, #FFFFFF 50%, transparent 51%),
+    radial-gradient(3px 3px at 90px 340px, rgba(255,255,255,.8) 50%, transparent 51%);
+  background-size: 400px 400px;
+  opacity: 0.55;
+  animation: snowfall 14s linear infinite;
+}
+@keyframes snowfall { to { transform: translate(40px, 400px); } }
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation: none; }
+  .lights { animation: none !important; }
+}
+
+h1, h2, h3 {
+  font-family: "Noto Serif TC", serif;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+a { color: var(--gold); }
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* 頁首：深綠底＋燈串 */
+.site-header {
+  position: relative;
+  z-index: 2;
+  background: #17402F;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.site-header a {
+  color: var(--snow);
+  text-decoration: none;
+  font-family: "Noto Serif TC", serif;
+  font-weight: 700;
+}
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.15rem;
+}
+.site-header .brand::before {
+  content: "";
+  width: 28px;
+  height: 28px;
+  background: url(images/tree.svg) center / contain no-repeat;
+}
+.lights {
+  height: 18px;
+  background:
+    radial-gradient(circle at 20px 9px, var(--red) 5px, transparent 6px),
+    radial-gradient(circle at 60px 11px, var(--gold) 5px, transparent 6px),
+    radial-gradient(circle at 100px 9px, var(--green) 5px, transparent 6px),
+    linear-gradient(#0B2A1E, #0B2A1E) 0 2px / 100% 2px no-repeat;
+  background-size: 120px 18px, 120px 18px, 120px 18px, 100% 2px;
+  background-repeat: repeat-x, repeat-x, repeat-x, no-repeat;
+  filter: drop-shadow(0 2px 6px rgba(242, 193, 78, 0.6));
+  animation: twinkle 2.4s ease-in-out infinite;
+}
+@keyframes twinkle { 50% { filter: drop-shadow(0 2px 2px rgba(242, 193, 78, 0.2)); opacity: 0.8; } }
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 64px;
+  padding: 28px 0;
+  background: #FFFFFF;
+  color: var(--ink);
+  font-size: 0.9rem;
+  text-align: center;
+  border-top-left-radius: 50% 28px;
+  border-top-right-radius: 50% 28px;
+}
+.site-footer .wrap::before {
+  content: "";
+  display: block;
+  height: 44px;
+  margin-bottom: 6px;
+  background: url(images/tree.svg) center / 44px no-repeat,
+              url(images/gift.svg) calc(50% - 46px) 16px / 26px no-repeat,
+              url(images/gift.svg) calc(50% + 46px) 16px / 26px no-repeat;
+}
+
+/* 首頁 */
+.hero {
+  padding: 40px 0 0;
+  text-align: center;
+}
+.hero .eyebrow {
+  margin: 0;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  font-size: 0.9rem;
+}
+.hero h1 {
+  margin: 4px 0 8px;
+  color: var(--snow);
+  font-size: clamp(2rem, 7vw, 3.1rem);
+  text-shadow: 0 0 24px rgba(242, 193, 78, 0.45);
+}
+.hero p { margin: 0 auto; max-width: 34em; }
+.hero .scene {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 16px;
+  border-radius: var(--radius);
+}
+
+.category { margin-top: 44px; }
+.category h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  color: var(--gold);
+  border-bottom: 2px dashed rgba(242, 193, 78, 0.5);
+}
+.category h2::before {
+  content: "";
+  flex: none;
+  width: 34px;
+  height: 34px;
+  background: url(images/holly.svg) center / contain no-repeat;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.card {
+  display: block;
+  padding: 20px;
+  background: var(--snow);
+  border-radius: var(--radius);
+  border-top: 5px solid var(--red);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.card:nth-child(even) { border-top-color: var(--green); }
+.card:hover, .card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 3px var(--gold), 0 10px 24px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+.card h3 { margin: 12px 0 4px; color: var(--red); }
+.card p { margin: 0; font-size: 0.95rem; }
+.card .meta { margin-top: 10px; color: var(--green); font-size: 0.85rem; font-weight: 700; }
+
+/* 聖誕球造型的圖示框 */
+.ornament {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 28%, #FFFFFF 0 14%, #FBE9B0 15% 40%, var(--gold) 100%);
+  box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.15);
+  font-size: 2rem;
+  line-height: 1;
+}
+.ornament::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 14px;
+  height: 10px;
+  transform: translateX(-50%);
+  border-radius: 3px 3px 0 0;
+  background: var(--red);
+}
+
+/* 食譜頁 */
+.recipe-head {
+  padding: 36px 0 8px;
+  text-align: center;
+}
+.recipe-head .ornament { width: 96px; height: 96px; font-size: 3rem; }
+.recipe-head h1 {
+  margin: 14px 0 8px;
+  color: var(--snow);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  text-shadow: 0 0 24px rgba(242, 193, 78, 0.45);
+}
+.recipe-head p { margin: 0; }
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.info li {
+  padding: 10px 12px;
+  background: rgba(247, 243, 234, 0.1);
+  border: 1px solid rgba(242, 193, 78, 0.45);
+  border-radius: var(--radius);
+  text-align: center;
+}
+.info span { display: block; color: var(--gold); font-size: 0.8rem; }
+.stars { color: var(--gold); letter-spacing: 2px; }
+
+.block {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: var(--snow);
+  color: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+.block a { color: var(--red); }
+.block h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  color: var(--green);
+  font-size: 1.3rem;
+}
+.block h2::before {
+  content: "";
+  flex: none;
+  width: 36px;
+  height: 36px;
+  background: center / contain no-repeat;
+}
+.block.ingredients h2::before { background-image: url(images/holly.svg); }
+.block.tools h2::before { background-image: url(images/mug.svg); }
+.block.steps h2::before { background-image: url(images/candle.svg); }
+.block.warn h2::before { background-image: url(images/gingerbread.svg); }
+.block.tip h2::before { background-image: url(images/gift.svg); }
+.block h3 { margin: 16px 0 6px; font-size: 1.05rem; color: var(--red); }
+.block ul, .block ol { margin: 0; padding-left: 1.4em; }
+.block li + li { margin-top: 6px; }
+.block.warn { border-left: 6px solid var(--red); }
+.block.tip { border-left: 6px solid var(--gold); }
+
+/* 帶小圖示的清單（食材、步驟） */
+.block li[data-icon] { list-style: none; position: relative; padding-left: 2.2em; }
+.block ul:has(> li[data-icon]), .block ol:has(> li[data-icon]) { padding-left: 0; }
+.block li[data-icon]::before {
+  content: attr(data-icon);
+  position: absolute;
+  left: 0;
+  top: -0.05em;
+  font-size: 1.3em;
+}
+.block ol { counter-reset: step; }
+.block ol > li { counter-increment: step; }
+.block ol > li[data-icon]::after {
+  content: counter(step);
+  position: absolute;
+  left: 1.1em;
+  top: 1.1em;
+  min-width: 1.5em;
+  padding: 0 0.3em;
+  border-radius: 1em;
+  background: var(--green);
+  color: #FFFFFF;
+  font-size: 0.65em;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+.block ol > li[data-icon] { padding-bottom: 6px; }
+
+/* 食材勾選（由 recipe.js 啟用） */
+.checkable li {
+  cursor: pointer;
+  border-radius: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.checkable li:hover { background: rgba(47, 125, 88, 0.1); }
+.checkable li:focus-visible { outline: 2px solid var(--green); }
+.checkable li.checked { color: #8A8F9C; text-decoration: line-through; }
+.checkable li.checked::before { content: "✅"; }
+.count {
+  margin-left: auto;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--green);
+  color: #FFFFFF;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 0.8rem;
+}
+.hint { margin: -6px 0 10px; color: #6B7080; font-size: 0.85rem; }
+
+/* 一步一步做（由 recipe.js 產生） */
+.btn {
+  appearance: none;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--red);
+  color: #FFFFFF;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.btn.ghost { background: transparent; color: var(--green); box-shadow: inset 0 0 0 2px var(--green); }
+.btn.small { padding: 4px 14px; font-size: 0.85rem; }
+.btn:disabled { opacity: 0.35; cursor: default; }
+.mode-toggle { margin-left: auto; }
+
+.cook { text-align: center; }
+.cook-lights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 4px 0 16px;
+}
+.cook-lights i {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #D8D2C4;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.cook-lights i.on:nth-child(3n+1) { background: var(--red); box-shadow: 0 0 10px var(--red); }
+.cook-lights i.on:nth-child(3n+2) { background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+.cook-lights i.on:nth-child(3n) { background: var(--green); box-shadow: 0 0 10px var(--green); }
+.cook-card {
+  min-height: 250px;
+  padding: 24px 20px;
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+  background: #FFFFFF;
+}
+.cook-icon { font-size: 3.4rem; line-height: 1.2; }
+.cook-count { color: var(--green); font-weight: 700; font-size: 0.9rem; }
+.cook-text { margin: 10px auto 0; max-width: 30em; font-size: 1.15rem; text-align: left; }
+.cook-done-img { width: 110px; height: 110px; }
+.timer { margin-top: 16px; }
+.timer.done { background: var(--green); animation: ring 0.5s ease-in-out 4; }
+@keyframes ring { 50% { transform: scale(1.08); } }
+.cook-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+.cook-nav .btn { flex: 1; max-width: 220px; }
+.is-hidden { display: none !important; }
+
+/* 食譜照片（有照片的食譜才會用到，見 CLAUDE.md「照片」） */
+.photo {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 4 / 3;
+  margin: 20px auto 0;
+  object-fit: cover;
+  border: 6px solid var(--snow);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.card-photo {
+  display: block;
+  width: calc(100% + 40px);
+  max-width: none;
+  aspect-ratio: 4 / 3;
+  margin: -20px -20px 0;
+  object-fit: cover;
+  border-radius: 9px 9px 0 0;
+}
+.credit { margin: 6px 0 0; font-size: 0.75rem; opacity: 0.75; text-align: center; }
+.credit a { color: inherit; }
+
+.source { margin-top: 24px; font-size: 0.9rem; text-align: center; }
+.back { display: inline-block; margin-top: 12px; }
+
+.empty {
+  padding: 20px;
+  border: 1px dashed var(--gold);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .block { padding: 16px 16px; }
+  .cook-text { font-size: 1.05rem; }
+  .block h2 { flex-wrap: wrap; }
+}

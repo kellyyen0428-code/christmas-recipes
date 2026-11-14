@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" role="img" aria-label="聖誕夜的雪地小屋與聖誕樹">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FFF4C9" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#FFF4C9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- 月亮與星星 -->
+  <circle cx="640" cy="62" r="70" fill="url(#glow)"/>
+  <circle cx="640" cy="62" r="30" fill="#FFF4C9"/>
+  <g fill="#FFF4C9">
+    <circle cx="60" cy="40" r="2"/><circle cx="140" cy="80" r="1.5"/><circle cx="210" cy="30" r="2.2"/>
+    <circle cx="300" cy="64" r="1.6"/><circle cx="380" cy="24" r="2"/><circle cx="470" cy="70" r="1.5"/>
+    <circle cx="540" cy="28" r="1.8"/><circle cx="740" cy="110" r="1.6"/><circle cx="770" cy="36" r="2"/>
+    <circle cx="100" cy="120" r="1.4"/><circle cx="430" cy="110" r="1.4"/>
+  </g>
+  <!-- 遠山 -->
+  <path d="M0 190 Q120 120 260 180 T520 170 T800 185 V260 H0Z" fill="#1E3260"/>
+  <!-- 遠方松樹 -->
+  <g fill="#17402F">
+    <path d="M70 200l18-44 18 44z"/><path d="M110 204l14-36 14 36z"/>
+    <path d="M690 198l18-46 18 46z"/><path d="M736 204l14-34 14 34z"/><path d="M560 200l12-30 12 30z"/>
+  </g>
+  <!-- 雪地 -->
+  <path d="M0 215 Q200 180 400 208 T800 200 V260 H0Z" fill="#E9EEF7"/>
+  <path d="M0 236 Q260 210 520 236 T800 228 V260 H0Z" fill="#FFFFFF"/>
+  <!-- 小屋 -->
+  <g>
+    <rect x="208" y="92" width="14" height="30" fill="#7A3B2E"/>
+    <path d="M212 84q-8-10 2-18q8-8 0-18" fill="none" stroke="#C9D3E6" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+    <rect x="150" y="140" width="120" height="76" fill="#8C4A35"/>
+    <path d="M136 144L210 92l74 52z" fill="#FFFFFF"/>
+    <path d="M144 146L210 100l66 46z" fill="#B3261E"/>
+    <path d="M136 144L210 92l74 52h-14L210 102l-60 42z" fill="#FFFFFF"/>
+    <rect x="166" y="160" width="26" height="26" rx="2" fill="#F2C14E"/>
+    <path d="M179 160v26M166 173h26" stroke="#8C4A35" stroke-width="2"/>
+    <rect x="228" y="160" width="26" height="26" rx="2" fill="#F2C14E"/>
+    <path d="M241 160v26M228 173h26" stroke="#8C4A35" stroke-width="2"/>
+    <rect x="198" y="176" width="24" height="40" rx="3" fill="#1F5F3F"/>
+    <circle cx="210" cy="186" r="6" fill="none" stroke="#B3261E" stroke-width="3"/>
+    <circle cx="217" cy="198" r="1.6" fill="#F2C14E"/>
+  </g>
+  <!-- 聖誕樹 -->
+  <g>
+    <rect x="482" y="208" width="16" height="22" fill="#7A3B2E"/>
+    <path d="M490 78l34 52h-18l30 44h-20l32 40H432l32-40h-20l30-44h-18z" fill="#1F5F3F"/>
+    <path d="M470 130q20 12 40 0M452 174q38 16 76 0" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+    <path d="M490 58l5 12 13 1-10 8 3 13-11-7-11 7 3-13-10-8 13-1z" fill="#F2C14E"/>
+    <circle cx="478" cy="118" r="5" fill="#C8382E"/><circle cx="504" cy="146" r="5" fill="#F2C14E"/>
+    <circle cx="470" cy="160" r="5" fill="#F2C14E"/><circle cx="510" cy="192" r="5" fill="#C8382E"/>
+    <circle cx="460" cy="198" r="5" fill="#C8382E"/><circle cx="488" cy="184" r="5" fill="#8FD3F4"/>
+  </g>
+  <!-- 禮物 -->
+  <g>
+    <rect x="536" y="212" width="26" height="20" fill="#C8382E"/><rect x="546" y="212" width="6" height="20" fill="#F2C14E"/>
+    <rect x="404" y="216" width="22" height="16" fill="#2F7D58"/><rect x="412" y="216" width="6" height="16" fill="#FFFFFF"/>
+  </g>
+</svg>
